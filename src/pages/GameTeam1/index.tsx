@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Div } from "../../components";
+import { Div, Paragraph } from "../../components";
 import colors from "../../styles/colors";
 import questionsData from "../../data/words";
 import { useGame } from "../../context/GameContext";
@@ -24,21 +24,31 @@ const GameTeam01: React.FC = () => {
   } = useGame();
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [currentQuestion, setCurrentQuestion] = useState<Question>(questions[0]);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isTeamATurn, setIsTeamATurn] = useState(true);
   const [showAnswerColors, setShowAnswerColors] = useState(false);
   const [isCounting, setIsCounting] = useState(false);
   const [timeLeft, setTimeLeft] = useState(30);
   const [countdown, setCountdown] = useState(5);
+  const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null);
+
+  useEffect(() => {
+    const shuffledQuestions = [...questionsData].sort(() => Math.random() - 0.5);
+    const selectedQuestions = shuffledQuestions.slice(0, 10);
+    setQuestions(selectedQuestions);
+    setCurrentQuestion(selectedQuestions[0] || null); // verificar se existe uma pergunta
+  }, []);
 
   useEffect(() => {
     // Embaralhar e selecionar 10 perguntas aleatórias
     const shuffledQuestions = [...questionsData].sort(() => Math.random() - 0.5);
     const selectedQuestions = shuffledQuestions.slice(0, 10);
     setQuestions(selectedQuestions);
-    setCurrentQuestion(selectedQuestions[0]); // definir a primeira pergunta
+    if (selectedQuestions.length > 0) {
+      setCurrentQuestion(selectedQuestions[0]); // definir a primeira pergunta
+    }
   }, []);
+
 
   const navigate = useNavigate();
   const deviceType = getDeviceType();
@@ -62,7 +72,13 @@ const GameTeam01: React.FC = () => {
     setSelectedAnswer(answer);
   };
 
-  const isCorrect = (answer: string) => answer === currentQuestion.correctAnswer;
+  const isCorrect = (answer: string) => {
+    if (!currentQuestion) {
+      return false; // Ou algum valor padrão que faça sentido na sua lógica
+    }
+    return answer === currentQuestion.correctAnswer;
+  };
+
 
   const getAnswerSymbol = (answer: string) => {
     if (showAnswerColors) {
@@ -72,6 +88,10 @@ const GameTeam01: React.FC = () => {
   };
 
   const handleNextQuestion = () => {
+    if (!currentQuestion) {
+      return; // Evita a execução se currentQuestion for null
+    }
+
     setShowAnswerColors(true);
     setIsCounting(true);
     setCountdown(5);
@@ -105,6 +125,7 @@ const GameTeam01: React.FC = () => {
       }
     }, 5000);
   };
+
 
   useEffect(() => {
     if (timeLeft === 0) {
@@ -145,15 +166,21 @@ const GameTeam01: React.FC = () => {
         }
       >
         <TeamNameLine name={currentTeamName} timeLeft={timeLeft} />
-        <CurrentWord word={currentQuestion.word} />
-        <MeaningOptions
-          answers={currentQuestion.answers}
-          selectedAnswer={selectedAnswer}
-          showAnswerColors={showAnswerColors}
-          symbol={getAnswerSymbol}
-          handleAnswer={handleAnswer}
-          isCorrect={isCorrect}
-        />
+        {currentQuestion ? (
+          <>
+            <CurrentWord word={currentQuestion.word} />
+            <MeaningOptions
+              answers={currentQuestion.answers}
+              selectedAnswer={selectedAnswer}
+              showAnswerColors={showAnswerColors}
+              symbol={getAnswerSymbol}
+              handleAnswer={handleAnswer}
+              isCorrect={isCorrect}
+            />
+          </>
+        ) : (
+          <Paragraph color={colors.preto}>Carregando pergunta...</Paragraph>
+        )}
         {deviceType !== 'desktop' && <NonDesktopTimer timeLeft={timeLeft} />}
         <ButtonLine
           handleNextQuestion={handleNextQuestion}
