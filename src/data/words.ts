@@ -4,136 +4,136 @@ type Question = {
   correctAnswer: string;
 };
 
-const questions: Question[] = [
+const questionsData: Question[] = [
   {
     word: "ARCO DE BOI",
-    answers: ["Arco-íris", "Corda de lançar boi", "Estilingue"],
-    correctAnswer: "Arco-íris",
+    answers: ["a) Arco-íris", "b) Corda de lançar boi", "c) Estilingue"],
+    correctAnswer: "a) Arco-íris",
   },
   {
     word: "CAMBUEIRO",
-    answers: ["Chuva fraca", "Vento forte", "Lamaçal"],
-    correctAnswer: "Chuva fraca",
+    answers: ["a) Chuva fraca", "b) Vento forte", "c) Lamaçal"],
+    correctAnswer: "a) Chuva fraca",
   },
   {
     word: "REBANCEIRA",
-    answers: ["Margem de rio", "Pedra grande", "Montanha"],
-    correctAnswer: "Margem de rio",
+    answers: ["a) Margem de rio", "b) Pedra grande", "c) Montanha"],
+    correctAnswer: "a) Margem de rio",
   },
   {
     word: "FLOR D'ÁGUA",
-    answers: ["Nascente de água", "Flores molhadas", "Ondas do mar"],
-    correctAnswer: "Nascente de água",
+    answers: ["a) Nascente de água", "b) Flores molhadas", "c) Ondas do mar"],
+    correctAnswer: "a) Nascente de água",
   },
   {
     word: "BANZEIRO",
-    answers: ["Onda", "Barulho", "Cachoeira"],
-    correctAnswer: "Onda",
+    answers: ["a) Onda", "b) Barulho", "c) Cachoeira"],
+    correctAnswer: "a) Onda",
   },
   {
     word: "MASSAPÊ",
-    answers: ["Tipo de solo sergipano", "Tipo de fruta sergipana", "Tipo de flor sergipana"],
-    correctAnswer: "Tipo de solo sergipano",
+    answers: ["a) Tipo de solo sergipano", "b) Tipo de fruta sergipana", "c) Tipo de flor sergipana"],
+    correctAnswer: "a) Tipo de solo sergipano",
   },
   {
     word: "MANIVA",
-    answers: ["Caule da mandioca", "Folha verde", "Flor da laranja"],
-    correctAnswer: "Caule da mandioca",
+    answers: ["a) Caule da mandioca", "b) Folha verde", "c) Flor da laranja"],
+    correctAnswer: "a) Caule da mandioca",
   },
   {
     word: "BUZA",
-    answers: ["Coração da bananeira", "Ninho de pássaro", "Pássaro da caatinga"],
-    correctAnswer: "Coração da bananeira",
+    answers: ["a) Coração da bananeira", "b) Ninho de pássaro", "c) Pássaro da caatinga"],
+    correctAnswer: "a) Coração da bananeira",
   },
   {
     word: "MANOCA",
-    answers: ["Um pequeno feixe de fumo", "Cesta de frutas", "Caixa de papel"],
-    correctAnswer: "Um pequeno feixe de fumo",
+    answers: ["a) Um pequeno feixe de fumo", "b) Cesta de frutas", "c) Caixa de papel"],
+    correctAnswer: "a) Um pequeno feixe de fumo",
   },
   {
     word: "GAMELA",
-    answers: ["Local para secar feijão", "Saco de arroz", "Bacia de plástico"],
-    correctAnswer: "Local para secar feijão",
+    answers: ["a) Local para secar feijão", "b) Saco de arroz", "c) Bacia de plástico"],
+    correctAnswer: "a) Local para secar feijão",
   },
   {
     word: "JERIMUM",
-    answers: ["Tipo de abóbora", "Semente de girassol", "Fruta vermelha"],
-    correctAnswer: "Tipo de abóbora",
+    answers: ["a) Tipo de abóbora", "b) Semente de girassol", "c) Fruta vermelha"],
+    correctAnswer: "a) Tipo de abóbora",
   },
   {
     word: "ESCALDADO",
-    answers: ["Pirão", "Bolo assado", "Sopa quente"],
-    correctAnswer: "Pirão",
+    answers: ["a) Pirão", "b) Bolo assado", "c) Sopa quente"],
+    correctAnswer: "a) Pirão",
   },
   {
     word: "BORRALHO",
-    answers: ["Cinza ainda quente", "Pedra pequena", "Folha seca"],
-    correctAnswer: "Cinza ainda quente",
+    answers: ["a) Cinza ainda quente", "b) Pedra pequena", "c) Folha seca"],
+    correctAnswer: "a) Cinza ainda quente",
   },
   {
     word: "DENTIQUEIRO",
-    answers: ["Dente do siso", "Dente de leite", "Dente quebrado"],
-    correctAnswer: "Dente do siso",
+    answers: ["a) Dente do siso", "b) Dente de leite", "c) Dente quebrado"],
+    correctAnswer: "a) Dente do siso",
   },
   {
     word: "MONDONGO",
-    answers: ["Tornozelo", "Joelho", "Cotovelo"],
-    correctAnswer: "Tornozelo",
+    answers: ["a) Tornozelo", "b) Joelho", "c) Cotovelo"],
+    correctAnswer: "a) Tornozelo",
   },
   {
     word: "CALIFOM",
-    answers: ["Sutiã", "Cinto", "Saia"],
-    correctAnswer: "Sutiã",
+    answers: ["a) Sutiã", "b) Cinto", "c) Saia"],
+    correctAnswer: "a) Sutiã",
   },
   {
     word: "TRAMELA",
-    answers: ["Tranca de madeira", "Bancada de madeira", "Tábua de passar"],
-    correctAnswer: "Tranca de madeira",
+    answers: ["a) Tranca de madeira", "b) Bancada de madeira", "c) Tábua de passar"],
+    correctAnswer: "a) Tranca de madeira",
   },
   {
     word: "ARGUEIRO",
-    answers: ["Cisco", "Pedra", "Areia"],
-    correctAnswer: "Cisco",
+    answers: ["a) Cisco", "b) Pedra", "c) Areia"],
+    correctAnswer: "a) Cisco",
   },
   {
     word: "DORDOLHO",
-    answers: ["Terçol", "Olheiro", "Óculos"],
-    correctAnswer: "Terçol",
+    answers: ["a) Terçol", "b) Olheiro", "c) Óculos"],
+    correctAnswer: "a) Terçol",
   },
   {
     word: "DAPIRANGA",
-    answers: ["Doença nos olhos", "Doença de pele", "Dor de cabeça"],
-    correctAnswer: "Doença nos olhos",
+    answers: ["a) Doença nos olhos", "b) Doença de pele", "c) Dor de cabeça"],
+    correctAnswer: "a) Doença nos olhos",
   },
   {
     word: "LAMBEDOR",
-    answers: ["Xarope caseiro", "Biscoito doce", "Geleia de fruta"],
-    correctAnswer: "Xarope caseiro",
+    answers: ["a) Xarope caseiro", "b) Biscoito doce", "c) Geleia de fruta"],
+    correctAnswer: "a) Xarope caseiro",
   },
   {
     word: "SOVINA",
-    answers: ["Pessoa avarenta", "Pessoa feliz", "Pessoa distraída"],
-    correctAnswer: "Pessoa avarenta",
+    answers: ["a) Pessoa avarenta", "b) Pessoa feliz", "c) Pessoa distraída"],
+    correctAnswer: "a) Pessoa avarenta",
   },
   {
     word: "MALINA",
-    answers: ["Criança traquina", "Cacto", "Semente de abóbora"],
-    correctAnswer: "Criança traquina",
+    answers: ["a) Criança traquina", "b) Cacto", "c) Semente de abóbora"],
+    correctAnswer: "a) Criança traquina",
   },
   {
     word: "CANGLAPÉ",
-    answers: ["Cambalhota", "Salto alto", "Pula corda"],
-    correctAnswer: "Cambalhota",
+    answers: ["a) Cambalhota", "b) Salto alto", "c) Pula corda"],
+    correctAnswer: "a) Cambalhota",
   },
   {
     word: "GUINÉ",
-    answers: ["Galinha d'angola", "Pato", "Ganso"],
-    correctAnswer: "Galinha d'angola",
+    answers: ["a) Galinha d'angola", "b) Pato", "c) Ganso"],
+    correctAnswer: "a) Galinha d'angola",
   },
   {
     word: "MUNDÉU",
-    answers: ["Tipo de armadilha", "Rede de pescar", "Cesta de frutas"],
-    correctAnswer: "Tipo de armadilha",
+    answers: ["a) Tipo de armadilha", "b) Rede de pescar", "c) Cesta de frutas"],
+    correctAnswer: "a) Tipo de armadilha",
   },
   {
     word: "GRAVIANA",
@@ -308,4 +308,4 @@ const questions: Question[] = [
 ];
 
 
-export default questions;
+export default questionsData;

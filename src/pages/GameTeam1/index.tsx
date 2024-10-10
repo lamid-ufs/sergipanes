@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Div } from "../../components";
 import colors from "../../styles/colors";
-import questions from "../../data/words";
+import questionsData from "../../data/words";
 import { useGame } from "../../context/GameContext";
 import getDeviceType from "../../hooks/getDeviceType";
 import { ButtonLine, CurrentWord, MeaningOptions, NonDesktopTimer, TeamNameLine } from "./PageComponents";
@@ -22,6 +22,7 @@ const GameTeam01: React.FC = () => {
     teamAName,
     teamBName
   } = useGame();
+  const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState<Question>(questions[0]);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
@@ -30,6 +31,14 @@ const GameTeam01: React.FC = () => {
   const [isCounting, setIsCounting] = useState(false);
   const [timeLeft, setTimeLeft] = useState(30);
   const [countdown, setCountdown] = useState(5);
+
+  useEffect(() => {
+    // Embaralhar e selecionar 10 perguntas aleatórias
+    const shuffledQuestions = [...questionsData].sort(() => Math.random() - 0.5);
+    const selectedQuestions = shuffledQuestions.slice(0, 10);
+    setQuestions(selectedQuestions);
+    setCurrentQuestion(selectedQuestions[0]); // definir a primeira pergunta
+  }, []);
 
   const navigate = useNavigate();
   const deviceType = getDeviceType();
