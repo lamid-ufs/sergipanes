@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/sergipanes/static/css/main.432af872.css",
-    "main.js": "/sergipanes/static/js/main.46f939b8.js",
+    "main.js": "/sergipanes/static/js/main.d3636d4f.js",
     "static/media/Neulis-BlackItalic.ttf": "/sergipanes/static/media/Neulis-BlackItalic.2cb04cbf605527282370.ttf",
     "static/media/Neulis-ExtraBoldItalic.ttf": "/sergipanes/static/media/Neulis-ExtraBoldItalic.c298ea8fe09771dee70b.ttf",
     "static/media/Neulis-Black.ttf": "/sergipanes/static/media/Neulis-Black.b6779886e8fb3e03a10f.ttf",
@@ -29,10 +29,10 @@
     "static/media/plant-red-yellow.png": "/sergipanes/static/media/plant-red-yellow.1bcbe42c10473f9c325a.png",
     "index.html": "/sergipanes/index.html",
     "main.432af872.css.map": "/sergipanes/static/css/main.432af872.css.map",
-    "main.46f939b8.js.map": "/sergipanes/static/js/main.46f939b8.js.map"
+    "main.d3636d4f.js.map": "/sergipanes/static/js/main.d3636d4f.js.map"
   },
   "entrypoints": [
     "static/css/main.432af872.css",
-    "static/js/main.46f939b8.js"
+    "static/js/main.d3636d4f.js"
   ]
 }
