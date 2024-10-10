@@ -5,7 +5,13 @@ import colors from "../../styles/colors";
 import questionsData from "../../data/words";
 import { useGame } from "../../context/GameContext";
 import getDeviceType from "../../hooks/getDeviceType";
-import { ButtonLine, CurrentWord, MeaningOptions, NonDesktopTimer, TeamNameLine } from "./PageComponents";
+import {
+  ButtonLine,
+  CurrentWord,
+  MeaningOptions,
+  NonDesktopTimer,
+  TeamNameLine,
+} from "./PageComponents";
 
 type Question = {
   word: string;
@@ -20,7 +26,7 @@ const GameTeam01: React.FC = () => {
     setTeamAScore,
     setTeamBScore,
     teamAName,
-    teamBName
+    teamBName,
   } = useGame();
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -33,7 +39,9 @@ const GameTeam01: React.FC = () => {
   const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null);
 
   useEffect(() => {
-    const shuffledQuestions = [...questionsData].sort(() => Math.random() - 0.5);
+    const shuffledQuestions = [...questionsData].sort(
+      () => Math.random() - 0.5
+    );
     const selectedQuestions = shuffledQuestions.slice(0, 10);
     setQuestions(selectedQuestions);
     setCurrentQuestion(selectedQuestions[0] || null); // verificar se existe uma pergunta
@@ -41,14 +49,15 @@ const GameTeam01: React.FC = () => {
 
   useEffect(() => {
     // Embaralhar e selecionar 10 perguntas aleatórias
-    const shuffledQuestions = [...questionsData].sort(() => Math.random() - 0.5);
+    const shuffledQuestions = [...questionsData].sort(
+      () => Math.random() - 0.5
+    );
     const selectedQuestions = shuffledQuestions.slice(0, 10);
     setQuestions(selectedQuestions);
     if (selectedQuestions.length > 0) {
       setCurrentQuestion(selectedQuestions[0]); // definir a primeira pergunta
     }
   }, []);
-
 
   const navigate = useNavigate();
   const deviceType = getDeviceType();
@@ -78,7 +87,6 @@ const GameTeam01: React.FC = () => {
     }
     return answer === currentQuestion.correctAnswer;
   };
-
 
   const getAnswerSymbol = (answer: string) => {
     if (showAnswerColors) {
@@ -126,7 +134,6 @@ const GameTeam01: React.FC = () => {
     }, 5000);
   };
 
-
   useEffect(() => {
     if (timeLeft === 0) {
       handleNextQuestion();
@@ -149,20 +156,30 @@ const GameTeam01: React.FC = () => {
     >
       <Div
         width={
-          deviceType === "smartphone" ? ("75%") :
-            (deviceType === "tablet-portrait" ? ("85%") : ("90%"))
+          deviceType === "smartphone"
+            ? "75%"
+            : deviceType === "tablet-portrait"
+            ? "80%"
+            : "90%"
         }
         height={
-          deviceType === "smartphone" ? ("") :
-            (deviceType === "tablet-portrait" ? ("85%") : ("90%"))
+          deviceType === "smartphone"
+            ? ""
+            : deviceType === "tablet-portrait"
+            ? "85%"
+            : "90%"
         }
         backgroundColor={colors.branco}
         radius={20}
         shadow="2px 2px 10px rgba(0, 0, 0, 0.3)"
-        justify={deviceType === "smartphone" ? ("center") : ("space-evenly")}
-        gap={deviceType === "smartphone" ? (20) : (0)}
-        padding={deviceType === "smartphone" ? ("35px 30px") :
-          (deviceType === "tablet-portrait" ? ("30px") : ("20px 30px"))
+        justify={deviceType === "smartphone" ? "center" : "space-evenly"}
+        gap={deviceType === "smartphone" ? 20 : 0}
+        padding={
+          deviceType === "smartphone"
+            ? "35px 30px"
+            : deviceType === "tablet-portrait"
+            ? "30px"
+            : "20px 30px"
         }
       >
         <TeamNameLine name={currentTeamName} timeLeft={timeLeft} />
@@ -181,7 +198,7 @@ const GameTeam01: React.FC = () => {
         ) : (
           <Paragraph color={colors.preto}>Carregando pergunta...</Paragraph>
         )}
-        {deviceType !== 'desktop' && <NonDesktopTimer timeLeft={timeLeft} />}
+        <NonDesktopTimer timeLeft={timeLeft} />
         <ButtonLine
           handleNextQuestion={handleNextQuestion}
           selectedAnswer={!selectedAnswer}

@@ -12,32 +12,42 @@ interface MeaningOptionsProps {
   isCorrect: (answer: string) => boolean;
 }
 
-const MeaningOptions: React.FC<MeaningOptionsProps> = ({ answers, selectedAnswer, showAnswerColors, symbol, handleAnswer, isCorrect }) => {
+const MeaningOptions: React.FC<MeaningOptionsProps> = ({
+  answers,
+  selectedAnswer,
+  showAnswerColors,
+  symbol,
+  handleAnswer,
+  isCorrect,
+}) => {
   const deviceType = getDeviceType();
 
   return (
-    <Div
-      width={deviceType === "smartphone" ? "100%" : deviceType === "tablet-portrait" ? "90%" : "40%"}
-      gap={25}
-    >
+    <Div width={deviceType !== "desktop" ? "100%" : "40%"} gap={25}>
       {answers.map((answer, index) => (
         <Button
           key={index}
           width={"100%"}
           margin={0}
           borderRadius={30}
-          padding={deviceType === "tablet-portrait" ? "7%" : "4.5% 5%"}
+          padding={
+            deviceType === "smartphone"
+              ? "15px"
+              : deviceType === "tablet-portrait"
+              ? "25px"
+              : "30px"
+          }
           onClick={() => handleAnswer(answer)}
           backgroundColor={
             showAnswerColors
               ? isCorrect(answer)
                 ? colors.cinzaEscuro
                 : selectedAnswer === answer
-                  ? colors.cinzaEscuro
-                  : colors.branco
+                ? colors.cinzaEscuro
+                : colors.branco
               : selectedAnswer === answer
-                ? colors.darkBlue
-                : colors.cinza
+              ? colors.darkBlue
+              : colors.cinza
           }
           hoverBackgroundColor={colors.cinzaEscuro}
           boxShadow={
@@ -58,14 +68,26 @@ const MeaningOptions: React.FC<MeaningOptionsProps> = ({ answers, selectedAnswer
             <Paragraph
               color={selectedAnswer === answer ? colors.branco : colors.preto}
               fontWeight={500}
-              fontSize={deviceType === "smartphone" ? 15 : deviceType === "tablet-portrait" ? 25 : 25}
+              fontSize={
+                deviceType === "smartphone"
+                  ? 15
+                  : deviceType === "tablet-portrait"
+                  ? 20
+                  : 25
+              }
             >
               {answer}
             </Paragraph>
             <Paragraph
               color={colors.preto}
               fontWeight={500}
-              fontSize={deviceType === "smartphone" ? 15 : deviceType === "tablet-portrait" ? 20 : 23}
+              fontSize={
+                deviceType === "smartphone"
+                  ? 15
+                  : deviceType === "tablet-portrait"
+                  ? 20
+                  : 23
+              }
             >
               {symbol(answer)}
             </Paragraph>

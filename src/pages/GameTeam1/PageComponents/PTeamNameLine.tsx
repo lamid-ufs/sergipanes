@@ -20,18 +20,30 @@ const TeamNameLine: React.FC<TeamNameProps> = ({ name, timeLeft }) => {
         <Div width={"20%"} height={"100%"} backgroundColor={colors.red} />
         <Div width={"20%"} height={"100%"} backgroundColor={colors.yellow} />
       </Div>
-      <Div>
+      <Div direction="row" gap={10}>
         <Paragraph
           color={colors.preto}
           fontWeight={500}
-          fontSize={deviceType === "smartphone" ? (30) : (deviceType === "tablet-portrait" ? (30) : (50))}
+          fontSize={
+            deviceType === "smartphone"
+              ? 30
+              : deviceType === "tablet-portrait"
+              ? 30
+              : 50
+          }
         >
-          Vez da equipe:
+          Equipe:
         </Paragraph>
         <Paragraph
           color={colors.preto}
           fontWeight={800}
-          fontSize={deviceType === "smartphone" ? (30) : (deviceType === "tablet-portrait" ? (60) : (50))}
+          fontSize={
+            deviceType === "smartphone"
+              ? 30
+              : deviceType === "tablet-portrait"
+              ? 30
+              : 50
+          }
         >
           {name}
         </Paragraph>

@@ -15,15 +15,38 @@ const CurrentWord: React.FC<CurrentWordProps> = ({ word }) => {
       <Paragraph
         color={colors.preto}
         fontWeight={400}
-        fontSize={deviceType === "smartphone" ? (15) : (deviceType === "tablet" ? (20) : (25))}
+        fontSize={
+          deviceType === "smartphone"
+            ? 17
+            : deviceType === "tablet-portrait"
+            ? 20
+            : 30
+        }
       >
         Vocês sabem o que significa
       </Paragraph>
-      <Div backgroundColor={colors.cinzaMedio} padding={"20px 80px"} radius={20}>
+      <Div
+        backgroundColor={colors.cinzaMedio}
+        padding={
+          deviceType === "smartphone"
+            ? "20px 30px"
+            : deviceType === "tablet-portrait"
+            ? "20px 50px"
+            : "20px 80px"
+        }
+        radius={20}
+      >
         <Paragraph
           color={colors.preto}
           fontWeight={800}
-          fontSize={deviceType === "smartphone" ? (40) : (deviceType === "tablet" ? (65) : (90))}
+          fontSize={
+            deviceType === "smartphone"
+              ? 40
+              : deviceType === "tablet-portrait"
+              ? 50
+              : 90
+          }
+          textAlign="center"
         >
           {word}?
         </Paragraph>

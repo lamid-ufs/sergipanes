@@ -9,8 +9,8 @@ import { useGame } from "../../context/GameContext";
 const NewGameForm: React.FC = () => {
   const deviceType = getDeviceType();
   const navigate = useNavigate();
-  const [team1name, setTeam1name] = useState("")
-  const [team2name, setTeam2name] = useState("")
+  const [team1name, setTeam1name] = useState("");
+  const [team2name, setTeam2name] = useState("");
   const { setTeamAName, setTeamBName } = useGame();
 
   const handleNavigate = () => {
@@ -24,7 +24,10 @@ const NewGameForm: React.FC = () => {
     navigate("/sergipanes");
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, setState: React.Dispatch<React.SetStateAction<string>>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    setState: React.Dispatch<React.SetStateAction<string>>
+  ) => {
     const value = e.target.value;
     setState(value);
   };
@@ -50,12 +53,18 @@ const NewGameForm: React.FC = () => {
       justify="space-between"
     >
       <PlantBoxCarousel width={"100%"} height={"12%"} />
-      <Div
-        width={"100%"}
-        height={"60%"}
-        justify="space-evenly"
-      >
-        <Paragraph color={colors.preto} fontWeight={800} fontSize={70}>
+      <Div width={"100%"} height={"70%"} justify="space-evenly">
+        <Paragraph
+          color={colors.preto}
+          fontWeight={800}
+          fontSize={
+            deviceType === "smartphone"
+              ? 45
+              : deviceType === "tablet-portrait"
+              ? 60
+              : 70
+          }
+        >
           Novo Jogo
         </Paragraph>
         <TeamForm
@@ -64,14 +73,30 @@ const NewGameForm: React.FC = () => {
           onChangeTeam1={(e) => handleInputChange(e, setTeam1name)}
           onChangeTeam2={(e) => handleInputChange(e, setTeam2name)}
         />
-        <Div width={"100%"} gap={20} >
+        <Div width={"100%"} gap={20}>
           <Button
-            width={deviceType === "smartphone" || deviceType === "tablet-portrait" ? "60%" : "20%"}
+            width={
+              deviceType === "smartphone"
+                ? "90%"
+                : deviceType === "tablet-portrait"
+                ? "60%"
+                : "25%"
+            }
             margin={0}
-            padding={deviceType === "smartphone" || deviceType === "tablet-portrait" ? "30px 0px" : "20px 0px"}
+            padding={
+              deviceType === "smartphone"
+                ? "20px 10px"
+                : deviceType === "tablet-portrait"
+                ? "20px 0px"
+                : "20px 0px"
+            }
             borderRadius={30}
             onClick={() => handleNavigate()}
-            backgroundColor={team1name === "" || team2name === "" ? colors.cinzaEscuro : colors.green}
+            backgroundColor={
+              team1name === "" || team2name === ""
+                ? colors.cinzaEscuro
+                : colors.green
+            }
             hoverBackgroundColor={"#76ac35"}
             boxShadow="2px 2px 10px rgba(0, 0, 0, 0.3)"
             hoverBoxShadow="4px 4px 15px rgba(0, 0, 0, 0.5)"
@@ -80,7 +105,13 @@ const NewGameForm: React.FC = () => {
             disabled={team1name === "" || team2name === ""}
           >
             <Paragraph
-              fontSize={deviceType === "smartphone" || deviceType === "tablet-portrait" ? 30 : 25}
+              fontSize={
+                deviceType === "smartphone"
+                  ? 20
+                  : deviceType === "tablet-portrait"
+                  ? 25
+                  : 30
+              }
               fontWeight={500}
               color={"#2C1F26"}
             >
@@ -88,9 +119,21 @@ const NewGameForm: React.FC = () => {
             </Paragraph>
           </Button>
           <Button
-            width={deviceType === "smartphone" || deviceType === "tablet-portrait" ? "60%" : "20%"}
+            width={
+              deviceType === "smartphone"
+                ? "90%"
+                : deviceType === "tablet-portrait"
+                ? "60%"
+                : "25%"
+            }
             margin={0}
-            padding={deviceType === "smartphone" || deviceType === "tablet-portrait" ? "30px 0px" : "20px 0px"}
+            padding={
+              deviceType === "smartphone"
+                ? "20px 10px"
+                : deviceType === "tablet-portrait"
+                ? "20px 0px"
+                : "20px 0px"
+            }
             borderRadius={30}
             onClick={() => handleNavigateHome()}
             backgroundColor={colors.green}
@@ -101,7 +144,13 @@ const NewGameForm: React.FC = () => {
             animationDuration="0.9s"
           >
             <Paragraph
-              fontSize={deviceType === "smartphone" || deviceType === "tablet-portrait" ? 30 : 25}
+              fontSize={
+                deviceType === "smartphone"
+                  ? 20
+                  : deviceType === "tablet-portrait"
+                  ? 25
+                  : 30
+              }
               fontWeight={500}
               color={"#2C1F26"}
             >
@@ -111,7 +160,7 @@ const NewGameForm: React.FC = () => {
         </Div>
       </Div>
       <PlantBoxCarousel width={"100%"} height={"12%"} />
-    </Div >
+    </Div>
   );
 };
 

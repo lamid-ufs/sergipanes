@@ -13,13 +13,29 @@ const Buttons: React.FC<ButtonsProps> = ({ onClick1 }) => {
   return (
     <Div
       width={"70%"}
-      direction={deviceType === "smartphone" || deviceType === "tablet-portrait" ? "column" : "row"}
+      direction={
+        deviceType === "smartphone" || deviceType === "tablet-portrait"
+          ? "column"
+          : "row"
+      }
       gap={deviceType === "smartphone" ? 10 : 30}
     >
       <Button
-        width={deviceType === "smartphone" ? "80%" : (deviceType === "tablet-portrait" ? "70%" : "20%")}
+        width={
+          deviceType === "smartphone"
+            ? "80%"
+            : deviceType === "tablet-portrait"
+            ? "70%"
+            : "20%"
+        }
         margin={0}
-        padding={deviceType === "smartphone" || deviceType === "tablet-portrait" ? "30px 0px" : "20px 0px"}
+        padding={
+          deviceType === "smartphone"
+            ? "20px 10px"
+            : deviceType === "tablet-portrait"
+            ? "15px 0px"
+            : "20px 0px"
+        }
         borderRadius={30}
         onClick={onClick1}
         backgroundColor={colors.castanha}
@@ -31,13 +47,17 @@ const Buttons: React.FC<ButtonsProps> = ({ onClick1 }) => {
       >
         <Paragraph
           fontWeight={700}
-          fontSize={deviceType === "smartphone" || deviceType === "tablet-portrait" ? 30 : 25}
+          fontSize={
+            deviceType === "smartphone" || deviceType === "tablet-portrait"
+              ? 30
+              : 25
+          }
         >
           Novo jogo
         </Paragraph>
       </Button>
     </Div>
-  )
-}
+  );
+};
 
 export default React.memo(Buttons);

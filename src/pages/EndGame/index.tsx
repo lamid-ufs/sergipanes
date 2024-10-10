@@ -6,10 +6,14 @@ import colors from "../../styles/colors";
 import Confetti from "react-confetti";
 import getDeviceType from "../../hooks/getDeviceType";
 import { Buttons, Scores, Thanks } from "./PageComponents";
-import { saveGameData, exportGameHistory } from "../../storage/functions/saveGameData";
+import {
+  saveGameData,
+  exportGameHistory,
+} from "../../storage/functions/saveGameData";
 
 const EndGameScreen: React.FC = () => {
-  const { teamAScore, teamBScore, teamAName, teamBName, resetGame, winner } = useGame();
+  const { teamAScore, teamBScore, teamAName, teamBName, resetGame, winner } =
+    useGame();
   const deviceType = getDeviceType();
   const navigate = useNavigate();
 
@@ -52,13 +56,13 @@ const EndGameScreen: React.FC = () => {
         <Div>
           <Paragraph
             color={colors.preto}
-            fontSize={25}
+            fontSize={deviceType === "smartphone" ? 20 : 25}
           >
             O vencedor é a equipe
           </Paragraph>
           <Paragraph
             color={colors.preto}
-            fontSize={50}
+            fontSize={deviceType === "smartphone" ? 25 : 50}
           >
             {winner}
           </Paragraph>

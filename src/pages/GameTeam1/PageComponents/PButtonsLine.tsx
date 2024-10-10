@@ -20,23 +20,20 @@ const ButtonLine: React.FC<ButtonLineProps> = ({
   countdown,
   currentQuestionIndex,
   questions,
-  handleNextQuestion
+  handleNextQuestion,
 }) => {
   const deviceType = getDeviceType();
 
   return (
-    <Div
-      direction="row"
-      width={"100%"}
-    >
+    <Div direction="row" width={"100%"}>
       <Button
         borderRadius={30}
         padding={
           deviceType === "smartphone"
             ? "10px 25px"
             : deviceType === "tablet-portrait"
-              ? "30px 50px"
-              : "20px 25px"
+            ? "20px 50px"
+            : "30px 50px"
         }
         onClick={handleNextQuestion}
         backgroundColor={!selectedAnswer ? colors.castanha : colors.cinzaEscuro}
@@ -55,8 +52,8 @@ const ButtonLine: React.FC<ButtonLineProps> = ({
           {isCounting
             ? `${countdown}s`
             : currentQuestionIndex < questions.length - 1
-              ? "Próxima"
-              : "Finalizar"}
+            ? "Próxima"
+            : "Finalizar"}
         </Paragraph>
       </Button>
     </Div>

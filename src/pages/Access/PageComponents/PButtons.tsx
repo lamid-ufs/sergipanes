@@ -13,15 +13,35 @@ const Buttons: React.FC<ButtonsProps> = ({ onClick1, onCLick2 }) => {
 
   return (
     <Div
-      direction={deviceType === "smartphone" || deviceType === "tablet-portrait" ? "column" : "row"}
+      direction={
+        deviceType === "smartphone" || deviceType === "tablet-portrait"
+          ? "column"
+          : "row"
+      }
       width={"80%"}
-      height={deviceType === "smartphone" || deviceType === "tablet-portrait" ? "" : "20%"}
+      height={
+        deviceType === "smartphone" || deviceType === "tablet-portrait"
+          ? ""
+          : "20%"
+      }
       gap={deviceType === "smartphone" ? 10 : 20}
     >
       <Button
-        width={deviceType === "smartphone" || deviceType === "tablet-portrait" ? "80%" : "20%"}
+        width={
+          deviceType === "smartphone"
+            ? "100%"
+            : deviceType === "tablet-portrait"
+            ? "80%"
+            : ""
+        }
         margin={0}
-        padding={deviceType === "smartphone" || deviceType === "tablet-portrait" ? "30px 0px" : "20px 0px"}
+        padding={
+          deviceType === "smartphone"
+            ? "20px 10px"
+            : deviceType === "tablet-portrait"
+            ? "20px 0px"
+            : "20px 50px"
+        }
         borderRadius={30}
         onClick={onClick1}
         backgroundColor={colors.green}
@@ -32,8 +52,13 @@ const Buttons: React.FC<ButtonsProps> = ({ onClick1, onCLick2 }) => {
         animationDuration="0.9s"
       >
         <Paragraph
-          fontSize={deviceType === "smartphone" || deviceType === "tablet-portrait" ? 30 : 25}
-          fontFamily="Neulis"
+          fontSize={
+            deviceType === "smartphone"
+              ? 20
+              : deviceType === "tablet-portrait"
+              ? 25
+              : 30
+          }
           fontWeight={500}
           color={"#2C1F26"}
         >
@@ -41,9 +66,21 @@ const Buttons: React.FC<ButtonsProps> = ({ onClick1, onCLick2 }) => {
         </Paragraph>
       </Button>
       <Button
-        width={deviceType === "smartphone" || deviceType === "tablet-portrait" ? "80%" : (deviceType === "tablet" ? "50%" : "20%")}
+        width={
+          deviceType === "smartphone"
+            ? "100%"
+            : deviceType === "tablet-portrait"
+            ? "80%"
+            : ""
+        }
         margin={0}
-        padding={deviceType === "smartphone" || deviceType === "tablet-portrait" ? "30px 0px" : "20px 0px"}
+        padding={
+          deviceType === "smartphone"
+            ? "20px 10px"
+            : deviceType === "tablet-portrait"
+            ? "20px 0px"
+            : "20px 50px"
+        }
         borderRadius={30}
         onClick={onCLick2}
         backgroundColor={colors.red}
@@ -54,8 +91,13 @@ const Buttons: React.FC<ButtonsProps> = ({ onClick1, onCLick2 }) => {
         animationDuration="0.9s"
       >
         <Paragraph
-          fontSize={deviceType === "smartphone" || deviceType === "tablet-portrait" ? 30 : 25}
-          fontFamily="Neulis"
+          fontSize={
+            deviceType === "smartphone"
+              ? 20
+              : deviceType === "tablet-portrait"
+              ? 25
+              : 30
+          }
           fontWeight={500}
           color="#f5f7cd"
         >
@@ -63,7 +105,7 @@ const Buttons: React.FC<ButtonsProps> = ({ onClick1, onCLick2 }) => {
         </Paragraph>
       </Button>
     </Div>
-  )
-}
+  );
+};
 
 export default React.memo(Buttons);
