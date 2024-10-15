@@ -76,16 +76,6 @@ const questionsData: Question[] = [
     correctAnswer: "a) Dente do siso",
   },
   {
-    word: "MONDONGO",
-    answers: ["a) Tornozelo", "b) Joelho", "c) Cotovelo"],
-    correctAnswer: "a) Tornozelo",
-  },
-  {
-    word: "CALIFOM",
-    answers: ["a) Sutiã", "b) Cinto", "c) Saia"],
-    correctAnswer: "a) Sutiã",
-  },
-  {
     word: "TRAMELA",
     answers: ["a) Tranca de madeira", "b) Bancada de madeira", "c) Tábua de passar"],
     correctAnswer: "a) Tranca de madeira",
@@ -140,11 +130,11 @@ const questionsData: Question[] = [
     answers: ["a) Saída de praia", "b) Pessoa séria", "c) Frio forte"],
     correctAnswer: "c) Frio forte",
   },
-  {
-    word: "CALIFON",
-    answers: ["a) Pessoa cafona", "b) Sutiã", "c) Óculos"],
-    correctAnswer: "b) Sutiã",
-  },
+  // {
+  //   word: "CALIFON",
+  //   answers: ["a) Pessoa cafona", "b) Sutiã", "c) Óculos"],
+  //   correctAnswer: "b) Sutiã",
+  // },
   {
     word: "CAMBOEIRO",
     answers: ["a) Chuva fraca", "b) Fruta do sertão", "c) Poço artesiano"],
@@ -211,11 +201,6 @@ const questionsData: Question[] = [
     correctAnswer: "b) Pérola",
   },
   {
-    word: "TAIM",
-    answers: ["a) Calcinha", "b) Cicatriz", "c) Peixe"],
-    correctAnswer: "b) Cicatriz",
-  },
-  {
     word: "OPILADO",
     answers: ["a) Pessoa anêmica", "b) Pessoa que não enxerga", "c) Pessoa feia"],
     correctAnswer: "a) Pessoa anêmica",
@@ -224,16 +209,6 @@ const questionsData: Question[] = [
     word: "SAMBOQUEIRO",
     answers: ["a) Dança folclórica", "b) Pessoa desajeitada", "c) Pequena plantação"],
     correctAnswer: "b) Pessoa desajeitada",
-  },
-  {
-    word: "SARARÁ",
-    answers: ["a) Mestiço de pele branca", "b) Cabelo crespo", "c) Tipo de pássaro"],
-    correctAnswer: "a) Mestiço de pele branca",
-  },
-  {
-    word: "PAQUETE",
-    answers: ["a) Brinquedo infantil", "b) Tipo de pão", "c) Menstruação"],
-    correctAnswer: "c) Menstruação",
   },
   {
     word: "DORDÓI",
