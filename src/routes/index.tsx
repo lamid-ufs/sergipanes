@@ -4,10 +4,8 @@ import Access from "../pages/Access";
 import GameTeam1 from "../pages/GameTeam1";
 import EndGameScreen from "../pages/EndGame";
 import NewGameForm from "../pages/AddTeamForm";
-import useRedirectOnReload from "../hooks/onReloadPage";
 
 const AppRoutes: React.FC = () => {
-  useRedirectOnReload();
   return (
     <Router>
       <Routes>
