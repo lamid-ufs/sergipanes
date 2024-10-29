@@ -38,25 +38,15 @@ const GameTeam01: React.FC = () => {
   const [countdown, setCountdown] = useState(5);
   const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null);
 
-  useEffect(() => {
-    const shuffledQuestions = [...questionsData].sort(
-      () => Math.random() - 0.5
-    );
-    const selectedQuestions = shuffledQuestions.slice(0, 10);
-    setQuestions(selectedQuestions);
-    setCurrentQuestion(selectedQuestions[0] || null); // verificar se existe uma pergunta
-  }, []);
+  const timerRef = React.useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    // Embaralhar e selecionar 10 perguntas aleatórias
     const shuffledQuestions = [...questionsData].sort(
       () => Math.random() - 0.5
     );
     const selectedQuestions = shuffledQuestions.slice(0, 10);
     setQuestions(selectedQuestions);
-    if (selectedQuestions.length > 0) {
-      setCurrentQuestion(selectedQuestions[0]); // definir a primeira pergunta
-    }
+    setCurrentQuestion(selectedQuestions[0] || null);
   }, []);
 
   const navigate = useNavigate();
@@ -83,7 +73,7 @@ const GameTeam01: React.FC = () => {
 
   const isCorrect = (answer: string) => {
     if (!currentQuestion) {
-      return false; // Ou algum valor padrão que faça sentido na sua lógica
+      return false;
     }
     return answer === currentQuestion.correctAnswer;
   };
@@ -97,7 +87,13 @@ const GameTeam01: React.FC = () => {
 
   const handleNextQuestion = () => {
     if (!currentQuestion) {
-      return; // Evita a execução se currentQuestion for null
+      return;
+    }
+
+    // Limpa o temporizador ao pressionar um botão
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
     }
 
     setShowAnswerColors(true);
@@ -139,11 +135,15 @@ const GameTeam01: React.FC = () => {
       handleNextQuestion();
     }
 
-    const timer = setTimeout(() => {
+    timerRef.current = setTimeout(() => {
       setTimeLeft((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
     }, 1000);
 
-    return () => clearTimeout(timer);
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+    };
   }, [timeLeft]);
 
   return (
